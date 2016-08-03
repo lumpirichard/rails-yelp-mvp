@@ -1,6 +1,11 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Restaurants</h1>
+<div id="banner">
+  <h1>Discover</h1>
+</div>
+
+
+
+<h1>Restaurants</h1>
 
 <table>
   <thead>
@@ -16,10 +21,10 @@
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.phone_number %></td>
-        <td><%= restaurant.category %></td>
+        <td class="wide"><%= restaurant.name %></td>
+        <td class="wide"><%= restaurant.address %></td>
+        <td class="wide"><%= restaurant.phone_number %></td>
+        <td class="wide"><%= restaurant.category %></td>
         <td><%= link_to 'Show', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -28,6 +33,3 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Restaurant', new_restaurant_path %>

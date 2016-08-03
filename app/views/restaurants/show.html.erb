@@ -1,34 +1,44 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<div class="container">
+  <p>
+    <strong>Name:</strong>
+    <%= @restaurant.name %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @restaurant.address %>
+  </p>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @restaurant.phone_number %>
-</p>
+  <p>
+    <strong>Phone number:</strong>
+    <%= @restaurant.phone_number %>
+  </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @restaurant.category %>
-</p>
+  <p>
+    <strong>Category:</strong>
+    <%= @restaurant.category %>
+  </p>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %> |
-<%= link_to 'Review', edit_restaurant_path(@restaurant) %>
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+  <%= link_to 'Back', restaurants_path %> |
+  <%= link_to 'Review', restaurant_reviews_new_path(@restaurant) %>
 
 
-<h3>Reviews</h3>
+  <%= render 'reviews/form_review'  %>
 
-<ul>
-  <% @restaurant.reviews.each do |review| %>
-    <li><%= review.rating%>, <%= review.content %></li>
-  <% end %>
-</ul>
+  <h3>Reviews</h3>
+
+  <ul class="list-unstyled">
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        <% review.rating.times do%>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        <% end %>
+        <% (5-review.rating).times do%>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+        <% end %>
+       <%= review.content %></li>
+    <% end %>
+  </ul>
+</div>

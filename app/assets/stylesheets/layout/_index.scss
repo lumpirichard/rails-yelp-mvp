@@ -1,3 +1,13 @@
 @import "utilities";
 @import "footer";
 @import "navbar";
+@import 'components/banner';
+
+
+td.wide {
+  width: 150px;
+}
+
+td {
+  padding: 4px;
+}
